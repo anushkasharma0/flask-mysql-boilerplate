@@ -2,7 +2,7 @@
 -- Create a new database.  You can change the name later.  You'll
 -- need this name in the FLASK API file(s),  the AppSmith
 -- data source creation.
-create database if not exists 'dine_diary_db';
+CREATE DATABASE IF NOT EXISTS 'dine_diary_db';
 
 -- Via the Docker Compose file, a special user called webapp will
 -- be created in MySQL. We are going to grant that user
@@ -16,7 +16,7 @@ flush privileges;
 -- Move into the database we just created.
 -- TODO: If you changed the name of the database above, you need to
 -- change it here too.
-use 'dine_diary_db';
+USE 'dine_diary_db';
 
 DROP TABLE IF EXISTS restaurant;
 
