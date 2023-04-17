@@ -1,13 +1,13 @@
--- This file is to bootstrap a database for the CS3200 project. 
+-- This file is to bootstrap a database for the CS3200 project.
 -- Create a new database.  You can change the name later.  You'll
--- need this name in the FLASK API file(s),  the AppSmith 
+-- need this name in the FLASK API file(s),  the AppSmith
 -- data source creation.
-create database dine_diary_db;
+create database if not exists dine_diary_db;
 
--- Via the Docker Compose file, a special user called webapp will 
--- be created in MySQL. We are going to grant that user 
--- all privilages to the new database we just created. 
--- TODO: If you changed the name of the database above, you need 
+-- Via the Docker Compose file, a special user called webapp will
+-- be created in MySQL. We are going to grant that user
+-- all privilages to the new database we just created.
+-- TODO: If you changed the name of the database above, you need
 -- to change it here too.
 grant all privileges on dine_diary_db.* to 'webapp' @'%';
 
@@ -15,7 +15,7 @@ flush privileges;
 
 -- Move into the database we just created.
 -- TODO: If you changed the name of the database above, you need to
--- change it here too. 
+-- change it here too.
 use dine_diary_db;
 
 DROP TABLE IF EXISTS restaurant;
@@ -141,7 +141,7 @@ CREATE TABLE user(
   email VARCHAR(40) NOT NULL,
   password VARCHAR(15) NOT NULL,
   bio VARCHAR(296) NOT NULL,
-  profile_pic VARCHAR(1500) NOT NULL
+  profile_pic VARCHAR(1500) NOT NULL,
   PRIMARY KEY (UserId)
 );
 
@@ -1158,7 +1158,6 @@ VALUES
     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIiSURBVBgZpcE7SJZhFMDx/3neV/u8ZlhoVxAkESoyJYoa3BojDCFc25psaS8CWxoEhxAagiCpHCpqaa3AyiIISwjTtHIou3wX/b73nFOPIEG0SL+fuDv/Q04Mjp052ttz6WvR69wBM9wMNcXNMTdcFXPHVVEzGqsrhamphXPjl/tH0p4jPcNVubrQkmM96gpFHQZG0mLFQ/FrnvUqVTzwW+rqXBxoZ71OD80Spe5GVM4UB9wcNTAcM0fN0MzRzFE3yuq0tTagpkQBdyIJQhAIQQgJJCKkIZAmKf7zBeV3Q1RJidqqlMgyJQpqShQAEUGCkAQhJIIECF5ieW6c+uZ9VD7dJ60ORKZGFNycVSJEAQgihCAkiVD88IDa5i4at3ZRmHsI+RkiMyUKZsoaEQERogBofoFv7+7RsLkJ/XGHLZ2n+P72Bm4ZZkYUskqFVSKICJGIEH15c5Pm9uOwPMnEtevUN5X4MfOI77OPySoZUXA1ogQQQEQQoPB5Ei0s0bCpiK3MgBuaf0pb71nmn1yhimWiYGasESAA4sris6s07dqPFV/hVqK7rwMrfySXm6ZxxyG6aiaI5MTg2FjLzm39poqpoars2fCUkwdztO6uQfMTuJd5fnuK7r5OJNkINcd4NHphpdpLB8Td+dvE8OH5vQPXtyfhPZ4tAc4fgaSmg8XXL5m+e/5Wyj9kK+Xc5Ghfyc1xM9wMN8PNcTPcHMxw99ZfSC4lgw+6sSMAAAAASUVORK5CYII='
   );
 
-
 DROP TABLE IF EXISTS location;
 
 CREATE TABLE location(
@@ -1170,7 +1169,7 @@ CREATE TABLE location(
   zip_code INTEGER,
   accessibility TEXT,
   parking_options TEXT,
-  landmarks TEXT
+  landmarks TEXT,
   PRIMARY KEY (LocationId),
   FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId)
 );
@@ -8026,7 +8025,7 @@ CREATE TABLE nutrition(
   calories INTEGER,
   carbs INTEGER,
   PRIMARY KEY (NutritionId),
-  FOREIGN KEY (DishdD) REFERENCES dish(DishId)
+  FOREIGN KEY (DishId) REFERENCES dish(DishId)
 );
 
 INSERT INTO
@@ -10620,7 +10619,7 @@ CREATE TABLE pictures(
   UserId INTEGER NOT NULL,
   description TEXT,
   name VARCHAR(50) NOT NULL,
-  photo NVARCHAR(1500) NOT NULL
+  photo NVARCHAR(1500) NOT NULL,
   PRIMARY KEY (PictureId),
   FOREIGN KEY (PostId) REFERENCES post(PostId),
   FOREIGN KEY (UserId) REFERENCES user(UserId)
