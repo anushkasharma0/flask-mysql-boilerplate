@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, make_response
+from flask import Blueprint, request, jsonify, make_response, current_app
 import json
 from src import db
 
@@ -6,7 +6,7 @@ from src import db
 restaurant = Blueprint('restaurant', __name__)
 
 # Get all restaurants from the DB
-@restaurant.route('/restaurant', methods=['GET'])
+@restaurant.route('/restaurant/allRestaurants', methods=['GET'])
 def get_restaurants():
     cursor = db.get_db().cursor()
     cursor.execute('select name, rating,\

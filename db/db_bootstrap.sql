@@ -23,7 +23,7 @@ USE dinediary;
 DROP TABLE IF EXISTS restaurant;
 
 CREATE TABLE restaurant(
-  RestaurantId INTEGER NOT NULL PRIMARY KEY,
+  RestaurantId INTEGER AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(40) UNIQUE NOT NULL,
   rating INTEGER,
   price_range VARCHAR(3)
