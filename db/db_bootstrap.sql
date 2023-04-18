@@ -1165,7 +1165,7 @@ DROP TABLE IF EXISTS location;
 
 CREATE TABLE location(
   LocationId INTEGER AUTO_INCREMENT NOT NULL,
-  RestaurantId INTEGER,
+  RestaurantId INTEGER NOT NULL,
   state VARCHAR(5) NOT NULL,
   city VARCHAR(20),
   street_address VARCHAR(25),
@@ -2295,7 +2295,7 @@ DROP TABLE IF EXISTS specialfeatures;
 
 CREATE TABLE specialfeatures(
   FeatureId INTEGER AUTO_INCREMENT,
-  RestaurantId INTEGER,
+  RestaurantId INTEGER NOT NULL,
   UniqueCuisine TEXT,
   CelebChef TEXT,
   PopUpExperience TEXT,
@@ -3323,7 +3323,7 @@ DROP TABLE IF EXISTS experience;
 
 CREATE TABLE experience(
   ExperienceId INTEGER AUTO_INCREMENT,
-  RestaurantId INTEGER,
+  RestaurantId INTEGER NOT NULL,
   rating INTEGER NOT NULL,
   recommendations TEXT,
   criticisms TEXT,
@@ -4045,7 +4045,7 @@ DROP TABLE IF EXISTS ambiance;
 
 CREATE TABLE ambiance(
   AmbianceId INTEGER AUTO_INCREMENT,
-  RestaurantId INTEGER,
+  RestaurantId INTEGER NOT NULL,
   noise_level TEXT,
   cleanliness TEXT,
   music TEXT,
@@ -5073,7 +5073,7 @@ DROP TABLE IF EXISTS menu;
 
 CREATE TABLE menu(
   MenuId INTEGER AUTO_INCREMENT,
-  RestaurantID INTEGER,
+  RestaurantID INTEGER NOT NULL,
   dishes_ordered TEXT,
   rating INTEGER NOT NULL,
   PRIMARY KEY (MenuId),
@@ -5433,7 +5433,7 @@ CREATE TABLE post(
   visibility VARCHAR(10) NOT NULL,
   city TEXT,
   description TEXT,
-  RestaurantId INTEGER,
+  RestaurantId INTEGER NOT NULL,
   PRIMARY KEY (PostId),
   FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId),
   FOREIGN KEY (UserId) REFERENCES user(UserId)
@@ -6553,7 +6553,7 @@ DROP TABLE IF EXISTS dish;
 
 CREATE TABLE dish(
   DishId INTEGER AUTO_INCREMENT,
-  RestaurantId INTEGER,
+  RestaurantId INTEGER NOT NULL,
   name VARCHAR(25) NOT NULL,
   price NUMERIC(5, 2) NOT NULL,
   ingredients TEXT,
