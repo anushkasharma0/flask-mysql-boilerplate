@@ -141,7 +141,7 @@ def get_menu_rating(restaurantId):
     the_response.mimetype = 'application/json'
     return the_response
 
-# Post information about new restaurant - fix this
+# Post information about new restaurant
 @restaurant.route('/restaurant', methods=['POST'])
 def add_new_restaurant():
      
