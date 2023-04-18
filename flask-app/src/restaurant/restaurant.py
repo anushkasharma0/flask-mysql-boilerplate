@@ -156,11 +156,11 @@ def add_new_restaurant():
      price = the_data ['price_range']
      
      # constructing the query
-     query = 'insert into products (name, rating, price_range) values ("'
+     query = 'insert into restaurant (name, rating, price_range) values ("'
      query += name + '", "'
      query += str(rating) + ', '
-     query += price + '")"'
-     current_app.logger.info(query)
+     query += price + '")'
+     current_app.logger.info(query) 
      
      # executing and committing the insert statement
      cursor = db.get_db().cursor()

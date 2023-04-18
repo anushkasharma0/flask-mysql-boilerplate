@@ -110,7 +110,41 @@ def get_reactions(PostId):
     the_response.mimetype = 'application/json'
     return the_response
 
-# Post a post
+# Post information about new user
+@socialuser.route('/socialuser', methods=['POST'])
+def add_new_user():
+     
+     # collecting data from the request object
+     the_data = request.json
+     current_app.logger.info(the_data)
+
+
+     # extracting the variable
+     username = the_data['username']
+     first_name = the_data['first_name']
+     last_name = the_data['last_name']
+     email = the_data['email']
+     password = the_data['password']
+     bio = the_data['bio']
+     profile_pic = the_data ['profile_pic']
+     
+     # constructing the query
+     query = 'insert into user (username, first_name, last_name, email, password, bio, profile_pic) values ("'
+     query += username + '", "'
+     query += first_name + '", "'
+     query += last_name + '", "'
+     query += email + '", "'
+     query += password + '", "'
+     query += bio + '", "'
+     query += profile_pic + '")'
+     current_app.logger.info(query) 
+     
+     # executing and committing the insert statement
+     cursor = db.get_db().cursor()
+     cursor.execute(query)
+     db.get_db().commit()
+
+     return 'Success!'
 # Put
 # Delete
 
