@@ -25,7 +25,7 @@ def get_restaurants():
 @restaurant.route('/restaurant/<restaurantId>', methods=['GET'])
 def get_restaurant_data(restaurantId):
     cursor = db.get_db().cursor()
-    cursor.execute('select * from restaurant where id = {0}'.format(restaurantId))
+    cursor.execute('select * from restaurant where restaurantId = {0}'.format(restaurantId))
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
