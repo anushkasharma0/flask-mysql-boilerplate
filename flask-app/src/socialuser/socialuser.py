@@ -147,6 +147,26 @@ def add_new_user():
      return 'Success!'
 
 # Put - Update user's bio
+@socialuser.route('/socialuser/<updateuser/<UserID>', methods=['PUT'])
+def update_user_bio(user_id):
+    # Check if the user exists
+    user = next((u for u in user_profiles if u['id'] == user_id), None)
+    if user is None:
+        return jsonify({'error': 'User not found'}), 404
+
+    # Get updated bio from the request
+    updated_data = request.get_json()
+    if not updated_data:
+        return jsonify({'error': 'No data provided'}), 400
+
+    # Update user's bio
+    user['bio'] = updated_data.get('bio', user['bio'])
+
+    # Return updated user data
+    return jsonify({'message': 'User bio updated successfully', 'user': user}), 200
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 # Delete user given a UserId
 @socialuser.route('/socialuser/deleteuser/<UserId>', methods=['DELETE'])
