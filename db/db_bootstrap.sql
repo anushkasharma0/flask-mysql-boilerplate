@@ -21801,3 +21801,647 @@ Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pu
     'http://dummyimage.com/196x100.png/dddddd/000000',
     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJGSURBVDjLpZNLTxpRFMdd+EX8BixZ6VfxQ9imq3YzSdNVE2MNyEMYAeUNofIKEBjA8CoiM4BCgiQgaJqWtjySAc2/585iogG76eI/czN3/r9z7jnnbgDY+B8pj3w+v5nNZncEQdhLp9N8KpUqJhKJYTwel2OxmByJRIbn5+fFUCjEB4PBPZ/Pt+PxeDZVAJm5SqUCURTRarVUNZtNdd1oNFCtVkHBEA6H4XK5OBWQyWQwnU4xHA7RbrdRr9eVn8vlsiK2ZnC2NxqNMB6PcXZ2BhVAacu3t7eYTCYQbr4jIP2ErzWHt/0I780jnOIUjsoDYlcDjH//UYAOh0NWAXTmbTrzUmpew3bRA196gONqAndrARfJevkLXzJ9fI5dwxkvwG63L09OTrZVABMVTBuNRpfVegPWlIRPvhI+nF7gHZ/FG4sAzl2AP1V8YX4BYKJKa6nSy8srEZakiPeneby1CvjoKeJrurRiXgEwUZu0fr9/+a16iVStC9/FNSLCevNaAJPX69W63e6nxWKhdIfMT+vMrwKYnE6nl7WtVCqB53nbPyfxuSjyFvV4l9pU6Xa7yOVysFgsebPZvGs0GrdeBdBoami6ioFAADQXoPHFYDBQ3lQXUHFxfHwMnU5XPDw81KwAyPxDkiTIsozZbIa7uztFDHJ/f698Y3vJZBIHBwejFQClzbFIhUIBnU4H/X4f8/lcUa/XQ61WU+7A0dER9vf3ubU1sNlsGqvVylGqWZPJ1DEYDNDr9SztLqWdpcgcmTXPPX8BpLUNr3FYePgAAAAASUVORK5CYII='
   );
+
+DROP TABLE IF EXISTS service;
+
+CREATE TABLE service(
+  ServiceId INTEGER AUTO_INCREMENT,
+  RestaurantId INTEGER NOT NULL,
+  rating VARCHAR(2) NOT NULL,
+  attentiveness TEXT,
+  speed TEXT,
+  PRIMARY KEY (ServiceID),
+  FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId)
+);
+
+INSERT INTO
+  service(
+    ServiceId,
+    RestaurantId,
+    rating,
+    attentiveness,
+    speed
+  )
+VALUES
+  (
+    1,
+    13,
+    3,
+    'elit',
+    'sit amet sapien dignissim vestibulum vestibulum ante ipsum'
+  ),
+(2, 1, 2, 'tincidunt', 'velit vivamus vel nulla'),
+(
+    3,
+    83,
+    6,
+    'donec diam neque vestibulum eget vulputate ut ultrices vel augue',
+    'diam cras pellentesque'
+  ),
+(
+    4,
+    9,
+    5,
+    'eu mi nulla',
+    'fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet'
+  ),
+(
+    5,
+    7,
+    8,
+    'donec vitae nisi nam',
+    'maecenas leo odio condimentum id'
+  ),
+(
+    6,
+    28,
+    3,
+    'donec quis',
+    'vulputate elementum nullam varius nulla facilisi cras non velit nec'
+  ),
+(7, 34, 10, 'magna bibendum', 'in congue etiam'),
+(
+    8,
+    50,
+    2,
+    'eu nibh quisque id',
+    'rutrum nulla nunc purus phasellus in felis donec'
+  ),
+(
+    9,
+    24,
+    2,
+    'suscipit nulla elit ac nulla sed vel enim sit',
+    'integer a nibh in quis justo maecenas rhoncus aliquam'
+  ),
+(
+    10,
+    36,
+    3,
+    'ipsum primis in faucibus orci luctus et ultrices',
+    'sapien placerat ante nulla'
+  ),
+(11, 22, 8, 'sapien', 'nulla tempus'),
+(
+    12,
+    84,
+    9,
+    'in consequat',
+    'lacus at velit vivamus vel nulla'
+  ),
+(
+    13,
+    47,
+    3,
+    'placerat ante nulla justo aliquam quis turpis eget elit sodales',
+    'accumsan tellus nisi eu orci'
+  ),
+(
+    14,
+    89,
+    9,
+    'nisi at nibh in hac habitasse platea dictumst aliquam augue',
+    'ut erat id'
+  ),
+(
+    15,
+    7,
+    4,
+    'sodales sed tincidunt eu felis',
+    'pellentesque quisque porta'
+  ),
+(
+    16,
+    31,
+    10,
+    'nulla ac enim',
+    'blandit non interdum in ante vestibulum ante ipsum'
+  ),
+(
+    17,
+    46,
+    8,
+    'in eleifend quam a odio in hac',
+    'interdum in ante vestibulum ante'
+  ),
+(
+    18,
+    98,
+    10,
+    'elementum in hac habitasse',
+    'nunc rhoncus dui vel sem sed sagittis nam'
+  ),
+(
+    19,
+    65,
+    8,
+    'risus dapibus augue vel accumsan tellus nisi eu orci mauris',
+    'habitasse platea dictumst etiam faucibus cursus'
+  ),
+(
+    20,
+    90,
+    8,
+    'porttitor id consequat in consequat ut',
+    'ante ipsum primis in faucibus'
+  ),
+(21, 57, 1, 'pede ac', 'velit'),
+(
+    22,
+    41,
+    2,
+    'id nisl venenatis lacinia aenean sit amet justo morbi ut',
+    'dui maecenas tristique est'
+  ),
+(
+    23,
+    96,
+    2,
+    'curabitur at ipsum ac tellus semper interdum',
+    'libero quis orci nullam molestie nibh in lectus pellentesque'
+  ),
+(
+    24,
+    99,
+    5,
+    'massa id lobortis convallis tortor',
+    'quam'
+  ),
+(
+    25,
+    70,
+    10,
+    'aliquam non mauris morbi non',
+    'adipiscing'
+  ),
+(
+    26,
+    3,
+    10,
+    'in hac habitasse platea dictumst aliquam augue quam sollicitudin',
+    'et ultrices posuere'
+  ),
+(
+    27,
+    86,
+    5,
+    'pretium iaculis',
+    'sollicitudin vitae consectetuer eget rutrum at lorem integer'
+  ),
+(
+    28,
+    16,
+    8,
+    'id ligula suspendisse',
+    'nulla elit ac nulla sed vel enim sit amet'
+  ),
+(
+    29,
+    33,
+    10,
+    'ultrices erat',
+    'in purus eu magna vulputate luctus'
+  ),
+(
+    30,
+    53,
+    7,
+    'amet diam in magna',
+    'sit amet cursus id turpis'
+  ),
+(
+    31,
+    52,
+    1,
+    'dictumst maecenas ut massa quis',
+    'et eros vestibulum ac est'
+  ),
+(
+    32,
+    16,
+    8,
+    'vestibulum velit id pretium iaculis diam erat fermentum justo',
+    'turpis elementum ligula vehicula consequat morbi'
+  ),
+(
+    33,
+    43,
+    6,
+    'amet lobortis sapien sapien non',
+    'posuere'
+  ),
+(
+    34,
+    23,
+    1,
+    'platea dictumst',
+    'ultrices posuere cubilia curae'
+  ),
+(
+    35,
+    61,
+    6,
+    'consequat dui nec nisi volutpat eleifend donec',
+    'pulvinar nulla'
+  ),
+(
+    36,
+    88,
+    2,
+    'at lorem integer tincidunt ante vel',
+    'tortor risus dapibus augue vel accumsan tellus nisi eu'
+  ),
+(
+    37,
+    32,
+    8,
+    'in purus eu magna vulputate luctus cum sociis natoque penatibus',
+    'est phasellus sit amet erat nulla tempus vivamus in felis'
+  ),
+(
+    38,
+    66,
+    3,
+    'lectus aliquam',
+    'urna ut tellus nulla ut erat'
+  ),
+(
+    39,
+    6,
+    4,
+    'primis in faucibus orci luctus et ultrices posuere cubilia curae',
+    'ut erat id mauris vulputate elementum nullam varius'
+  ),
+(
+    40,
+    77,
+    9,
+    'leo odio porttitor id consequat in consequat ut nulla sed',
+    'lorem ipsum dolor sit'
+  ),
+(
+    41,
+    28,
+    5,
+    'sit amet consectetuer adipiscing elit proin risus praesent lectus vestibulum',
+    'odio curabitur'
+  ),
+(
+    42,
+    83,
+    5,
+    'habitasse platea dictumst',
+    'at lorem integer'
+  ),
+(
+    43,
+    91,
+    4,
+    'ante ipsum primis in faucibus orci',
+    'nulla'
+  ),
+(44, 98, 4, 'in ante vestibulum ante', 'tempus'),
+(
+    45,
+    54,
+    4,
+    'dui nec nisi',
+    'pede ac diam cras pellentesque'
+  ),
+(
+    46,
+    25,
+    3,
+    'nisl nunc rhoncus dui vel',
+    'vestibulum quam sapien'
+  ),
+(47, 18, 6, 'enim in', 'posuere cubilia curae mauris'),
+(
+    48,
+    87,
+    10,
+    'ultrices libero non mattis pulvinar nulla pede ullamcorper',
+    'velit donec diam neque vestibulum'
+  ),
+(
+    49,
+    60,
+    10,
+    'viverra pede',
+    'massa quis augue luctus tincidunt'
+  ),
+(
+    50,
+    80,
+    9,
+    'turpis enim blandit mi',
+    'id ligula suspendisse ornare consequat lectus in est risus'
+  ),
+(
+    51,
+    56,
+    3,
+    'orci pede venenatis non sodales',
+    'vivamus vel nulla eget'
+  ),
+(
+    52,
+    86,
+    10,
+    'luctus tincidunt nulla mollis molestie lorem quisque ut erat',
+    'turpis'
+  ),
+(
+    53,
+    51,
+    10,
+    'mauris sit amet eros',
+    'ipsum dolor sit amet consectetuer adipiscing elit'
+  ),
+(
+    54,
+    21,
+    10,
+    'a ipsum integer a',
+    'aliquam quis turpis eget elit sodales scelerisque'
+  ),
+(55, 44, 3, 'justo etiam', 'integer'),
+(
+    56,
+    57,
+    7,
+    'augue aliquam erat volutpat in congue etiam justo etiam',
+    'in sagittis dui vel nisl'
+  ),
+(
+    57,
+    93,
+    2,
+    'convallis duis',
+    'augue vestibulum ante ipsum'
+  ),
+(
+    58,
+    90,
+    5,
+    'id ligula suspendisse ornare consequat lectus in',
+    'aliquet massa id lobortis convallis tortor risus dapibus augue'
+  ),
+(
+    59,
+    65,
+    7,
+    'maecenas leo',
+    'mus vivamus vestibulum sagittis sapien'
+  ),
+(
+    60,
+    68,
+    2,
+    'vel lectus in quam fringilla rhoncus mauris enim',
+    'nunc donec quis'
+  ),
+(61, 92, 6, 'faucibus', 'augue'),
+(
+    62,
+    76,
+    10,
+    'rhoncus aliquet pulvinar sed nisl nunc',
+    'lorem ipsum dolor sit amet consectetuer adipiscing'
+  ),
+(
+    63,
+    39,
+    7,
+    'viverra pede ac diam cras pellentesque volutpat dui',
+    'eu magna vulputate luctus cum sociis'
+  ),
+(
+    64,
+    98,
+    5,
+    'habitasse platea dictumst etiam faucibus cursus',
+    'ut odio cras mi pede malesuada in imperdiet'
+  ),
+(
+    65,
+    14,
+    3,
+    'amet lobortis sapien sapien',
+    'massa id lobortis convallis tortor risus'
+  ),
+(
+    66,
+    38,
+    7,
+    'odio curabitur convallis duis consequat dui nec nisi volutpat',
+    'potenti cras'
+  ),
+(
+    67,
+    96,
+    10,
+    'justo sollicitudin',
+    'pellentesque eget nunc donec quis'
+  ),
+(
+    68,
+    53,
+    7,
+    'ut mauris eget massa tempor convallis nulla',
+    'nulla justo aliquam'
+  ),
+(
+    69,
+    16,
+    8,
+    'justo eu massa donec',
+    'justo nec condimentum neque sapien placerat'
+  ),
+(
+    70,
+    34,
+    7,
+    'lorem id ligula suspendisse ornare consequat lectus',
+    'auctor sed tristique in tempus sit amet sem'
+  ),
+(
+    71,
+    24,
+    8,
+    'nisi volutpat eleifend donec ut dolor morbi',
+    'quam sapien varius ut blandit non interdum in'
+  ),
+(
+    72,
+    65,
+    4,
+    'porttitor lorem id ligula suspendisse ornare consequat',
+    'tincidunt nulla mollis molestie lorem quisque ut erat curabitur'
+  ),
+(
+    73,
+    33,
+    9,
+    'quam',
+    'mauris enim leo rhoncus sed vestibulum sit'
+  ),
+(
+    74,
+    12,
+    3,
+    'rhoncus sed vestibulum sit amet',
+    'curae'
+  ),
+(
+    75,
+    79,
+    6,
+    'erat quisque erat eros viverra eget congue',
+    'nullam orci pede venenatis non'
+  ),
+(
+    76,
+    98,
+    7,
+    'est et tempus semper est quam pharetra magna ac consequat',
+    'purus phasellus'
+  ),
+(77, 25, 5, 'justo in', 'condimentum'),
+(
+    78,
+    35,
+    7,
+    'vel nulla eget eros elementum pellentesque quisque',
+    'sapien non mi'
+  ),
+(
+    79,
+    44,
+    8,
+    'ipsum integer a nibh in quis justo maecenas',
+    'felis'
+  ),
+(
+    80,
+    38,
+    5,
+    'lorem quisque ut erat curabitur gravida',
+    'at ipsum ac tellus semper'
+  ),
+(
+    81,
+    86,
+    1,
+    'condimentum',
+    'vivamus vestibulum sagittis sapien cum sociis natoque'
+  ),
+(82, 95, 1, 'leo', 'quam a'),
+(
+    83,
+    61,
+    3,
+    'nunc donec quis orci eget orci vehicula condimentum curabitur',
+    'pede lobortis ligula'
+  ),
+(
+    84,
+    55,
+    3,
+    'tortor risus dapibus',
+    'ipsum ac tellus semper interdum mauris ullamcorper purus sit amet'
+  ),
+(
+    85,
+    79,
+    5,
+    'in ante',
+    'erat eros viverra eget congue eget'
+  ),
+(
+    86,
+    15,
+    5,
+    'imperdiet et commodo vulputate justo in blandit ultrices enim',
+    'ut massa quis augue luctus tincidunt nulla mollis molestie'
+  ),
+(87, 53, 5, 'neque sapien placerat ante nulla', 'a'),
+(
+    88,
+    13,
+    7,
+    'cras pellentesque',
+    'adipiscing elit proin interdum mauris'
+  ),
+(
+    89,
+    28,
+    1,
+    'ac tellus semper interdum mauris ullamcorper purus sit amet nulla',
+    'duis at velit eu est'
+  ),
+(90, 66, 10, 'integer', 'interdum venenatis'),
+(
+    91,
+    88,
+    4,
+    'eget elit sodales scelerisque',
+    'nulla sed accumsan felis ut at'
+  ),
+(
+    92,
+    73,
+    9,
+    'laoreet ut rhoncus aliquet pulvinar',
+    'nisl aenean lectus pellentesque eget'
+  ),
+(
+    93,
+    53,
+    3,
+    'mauris sit amet eros suspendisse accumsan tortor quis turpis sed',
+    'aliquam convallis'
+  ),
+(
+    94,
+    44,
+    10,
+    'risus semper porta volutpat',
+    'dictumst'
+  ),
+(
+    95,
+    2,
+    1,
+    'ipsum praesent blandit lacinia erat vestibulum',
+    'lacinia nisi venenatis tristique fusce congue diam'
+  ),
+(96, 93, 10, 'potenti', 'accumsan'),
+(
+    97,
+    57,
+    4,
+    'metus sapien ut nunc',
+    'bibendum morbi non quam nec'
+  ),
+(
+    98,
+    52,
+    5,
+    'enim sit amet nunc viverra dapibus nulla suscipit ligula',
+    'enim sit amet nunc'
+  ),
+(
+    99,
+    82,
+    10,
+    'aliquam convallis nunc proin at turpis a pede posuere',
+    'molestie lorem quisque ut erat'
+  ),
+(
+    100,
+    79,
+    5,
+    'amet justo morbi ut odio cras mi',
+    'elit proin interdum mauris non ligula'
+  );
