@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Restaurant Test",
-    "dateExported": "2023-04-18T06:25:39.839Z",
+    "dateExported": "2023-04-18T18:24:27.566Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -255,6 +255,44 @@
             "modified": "2023-04-18T05:35:46.252Z",
             "headers": [],
             "params": [],
+            "tests": []
+        },
+        {
+            "_id": "92611cb6-0cf0-4198-ae7e-255d01d93010",
+            "colId": "332419e7-f1de-48b8-939f-119d0b10f0fc",
+            "containerId": "",
+            "name": "TestPostNewRestaurant",
+            "url": "localhost:8001/r/restaurant",
+            "method": "POST",
+            "sortNum": 210000,
+            "created": "2023-04-18T15:49:25.326Z",
+            "modified": "2023-04-18T18:11:35.688Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Pizza Hut\",\n  \"rating\": 4,\n  \"price_range\": \"$\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "aa4bbae1-f4fd-4111-8467-ca1195a1e762",
+            "colId": "332419e7-f1de-48b8-939f-119d0b10f0fc",
+            "containerId": "",
+            "name": "TestPostNewRestaurant02",
+            "url": "localhost:8001/r/restaurant",
+            "method": "POST",
+            "sortNum": 220000,
+            "created": "2023-04-18T18:13:21.640Z",
+            "modified": "2023-04-18T18:22:39.723Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"P.F. Changs\",\n  \"rating\": 7,\n  \"price_range\": \"$$\"\n}",
+                "form": []
+            },
             "tests": []
         }
     ]
