@@ -169,7 +169,7 @@ def add_new_restaurant():
 
      return 'Success!'
 
-# Put
+# Put - Update rating of a restaurant
 
 # Delete restaurant given a RestaurantId
 @restaurant.route('/restaurant/deleterestaurant/<RestaurantId>', methods=['DELETE'])

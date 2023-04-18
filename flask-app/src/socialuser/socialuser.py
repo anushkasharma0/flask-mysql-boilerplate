@@ -146,7 +146,7 @@ def add_new_user():
 
      return 'Success!'
 
-# Put
+# Put - Update user's bio
 
 # Delete user given a UserId
 @socialuser.route('/socialuser/deleteuser/<UserId>', methods=['DELETE'])
