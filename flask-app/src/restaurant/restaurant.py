@@ -35,3 +35,18 @@ def get_restaurant_data(restaurantId):
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
+
+# Get restaurant detail for restaurant with particular restaurantId
+@restaurant.route('/restaurant/pricerange/<restaurantId>', methods=['GET'])
+def get_pricerange(restaurantId):
+    cursor = db.get_db().cursor()
+    cursor.execute('select price_range from restaurant where restaurantId = {0}'.format(restaurantId))
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
