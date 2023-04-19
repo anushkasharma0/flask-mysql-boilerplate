@@ -146,7 +146,7 @@ def add_new_user():
 
      return 'Success!'
 
-# Put - Update user bio
+# Put - Update user bio given UserId
 @socialuser.route('/socialuser/bio/<UserId>', methods=['PUT'])
 def update_bio(UserId):
      
