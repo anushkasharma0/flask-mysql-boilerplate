@@ -146,23 +146,28 @@ def add_new_user():
 
      return 'Success!'
 
-# Put - Update user's bio
-@socialuser.route('/socialuser/updatebio/<UserId>', methods=['PUT'])
-def update_user_bio(UserId):
+# Put - Update user bio
+@socialuser.route('/socialuser/bio/<UserId>', methods=['PUT'])
+def update_bio(UserId):
      
     # collecting data from the request object
     the_data = request.json
-    current_app.logger.info(the_data)
      
     # extracting the variable
     bio = the_data['bio']
 
     # constructing the query
-    query = 'set user (bio) values ("'
-    query += bio + '")'
+    query = 'UPDATE user SET bio = %s WHERE UserId = %s'
+
+    current_app.logger.info(query)
+
+    # executing and committing
+    cursor = db.get_db().cursor()
+    cursor.execute(query, (bio, UserId))
+    db.get_db().commit()
 
     # Return updated user data
-    return 'User bio updated successfully!'
+    return 'User updated successfully!'
 
 if __name__ == '__main__':
     app.run(debug=True)

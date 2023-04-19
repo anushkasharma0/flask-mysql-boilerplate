@@ -175,14 +175,19 @@ def update_rating(RestaurantId):
      
     # collecting data from the request object
     the_data = request.json
-    current_app.logger.info(the_data)
      
     # extracting the variable
     rating = the_data['rating']
 
     # constructing the query
-    query = 'set restaurant (rating) where values ("'
-    query += str(rating) + '")'
+    query = 'UPDATE restaurant SET rating = %s WHERE RestaurantId = %s'
+
+    current_app.logger.info(query)
+
+    # executing and committing
+    cursor = db.get_db().cursor()
+    cursor.execute(query, (rating, RestaurantId))
+    db.get_db().commit()
 
     # Return updated user data
     return 'Restaurant rating updated successfully!'
