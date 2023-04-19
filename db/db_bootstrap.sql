@@ -1174,7 +1174,7 @@ CREATE TABLE location(
   parking_options TEXT,
   landmarks TEXT,
   PRIMARY KEY (LocationId),
-  FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId)
+  CONSTRAINT fk_01 FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 INSERT INTO
@@ -2303,7 +2303,7 @@ CREATE TABLE specialfeatures(
   PrivateDining TEXT,
   Other TEXT,
   PRIMARY KEY (FeatureId),
-  FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId)
+  CONSTRAINT fk_02 FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 INSERT INTO
@@ -3328,7 +3328,7 @@ CREATE TABLE experience(
   recommendations TEXT,
   criticisms TEXT,
   PRIMARY KEY (ExperienceId),
-  FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId)
+  CONSTRAINT fk_03 FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 INSERT INTO
@@ -4053,7 +4053,7 @@ CREATE TABLE ambiance(
   decor TEXT,
   comfort TEXT,
   PRIMARY KEY (AmbianceId),
-  FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId)
+  CONSTRAINT fk_04 FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 INSERT INTO
@@ -5077,7 +5077,7 @@ CREATE TABLE menu(
   dishes_ordered TEXT,
   rating INTEGER NOT NULL,
   PRIMARY KEY (MenuId),
-  FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId)
+  CONSTRAINT fk_05 FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 INSERT INTO
@@ -5435,8 +5435,8 @@ CREATE TABLE post(
   description TEXT,
   RestaurantId INTEGER NOT NULL,
   PRIMARY KEY (PostId),
-  FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId),
-  FOREIGN KEY (UserId) REFERENCES user(UserId)
+  CONSTRAINT fk_06 FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId) ON UPDATE CASCADE ON DELETE RESTRICT,
+  CONSTRAINT fk_07 FOREIGN KEY (UserId) REFERENCES user(UserId) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 INSERT INTO
@@ -6559,7 +6559,7 @@ CREATE TABLE dish(
   ingredients TEXT,
   presentation TEXT,
   PRIMARY KEY (DishId),
-  FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId)
+  CONSTRAINT fk_08 FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 INSERT INTO
@@ -7503,7 +7503,7 @@ CREATE TABLE friend(
   muting_status VARCHAR(5),
   UserId INTEGER NOT NULL,
   PRIMARY KEY (FollowerId),
-  FOREIGN KEY (UserId) REFERENCES user(UserId)
+  CONSTRAINT fk_09 FOREIGN KEY (UserId) REFERENCES user(UserId) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 INSERT INTO
@@ -8327,8 +8327,8 @@ CREATE TABLE reaction(
   visibility VARCHAR(15),
   type VARCHAR(15) NOT NULL,
   PRIMARY KEY (ReactionId),
-  FOREIGN KEY (UserId) REFERENCES user(UserId),
-  FOREIGN KEY (PostId) REFERENCES post(PostId)
+  CONSTRAINT fk_10 FOREIGN KEY (UserId) REFERENCES user(UserId) ON UPDATE CASCADE ON DELETE RESTRICT,
+  CONSTRAINT fk_11 FOREIGN KEY (PostId) REFERENCES post(PostId) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 INSERT INTO
@@ -9145,8 +9145,8 @@ CREATE TABLE comment(
   timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
   visibility VARCHAR(20),
   PRIMARY KEY (CommentId),
-  FOREIGN KEY (UserId) REFERENCES user(UserId),
-  FOREIGN KEY (PostId) REFERENCES post(PostId)
+  CONSTRAINT fk_12 FOREIGN KEY (UserId) REFERENCES user(UserId) ON UPDATE CASCADE ON DELETE RESTRICT,
+  CONSTRAINT fk_13 FOREIGN KEY (PostId) REFERENCES post(PostId) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 INSERT INTO
@@ -9970,8 +9970,8 @@ CREATE TABLE pictures(
   name VARCHAR(50) NOT NULL,
   photo NVARCHAR(1500) NOT NULL,
   PRIMARY KEY (PictureId),
-  FOREIGN KEY (PostId) REFERENCES post(PostId),
-  FOREIGN KEY (UserId) REFERENCES user(UserId)
+  CONSTRAINT fk_14 FOREIGN KEY (PostId) REFERENCES post(PostId) ON UPDATE CASCADE ON DELETE RESTRICT,
+  CONSTRAINT fk_15 FOREIGN KEY (UserId) REFERENCES user(UserId) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 INSERT INTO
@@ -10910,7 +10910,7 @@ CREATE TABLE service(
   attentiveness TEXT,
   speed TEXT,
   PRIMARY KEY (ServiceID),
-  FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId)
+  CONSTRAINT fk_16 FOREIGN KEY (RestaurantId) REFERENCES restaurant(RestaurantId) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 INSERT INTO
