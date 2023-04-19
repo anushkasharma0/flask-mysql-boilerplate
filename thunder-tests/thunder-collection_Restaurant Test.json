@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Restaurant Test",
-    "dateExported": "2023-04-19T01:09:51.663Z",
+    "dateExported": "2023-04-19T06:44:20.563Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -296,48 +296,20 @@
             "tests": []
         },
         {
-            "_id": "ba8ef23c-9026-47a9-80f4-1eb9b7fa16e8",
-            "colId": "332419e7-f1de-48b8-939f-119d0b10f0fc",
-            "containerId": "",
-            "name": "TestDeleteRestaurant",
-            "url": "localhost:8001/r/restaurant/deleterestaurant/23",
-            "method": "DELETE",
-            "sortNum": 230000,
-            "created": "2023-04-18T18:42:24.425Z",
-            "modified": "2023-04-18T18:43:04.155Z",
-            "headers": [],
-            "params": [],
-            "tests": []
-        },
-        {
-            "_id": "fbbbd2ab-7d3e-434c-84a5-ab074c14acb9",
-            "colId": "332419e7-f1de-48b8-939f-119d0b10f0fc",
-            "containerId": "",
-            "name": "TestDeleteRestaurant02",
-            "url": "localhost:8001/r/restaurant/deleterestaurant/27",
-            "method": "DELETE",
-            "sortNum": 240000,
-            "created": "2023-04-18T18:43:20.936Z",
-            "modified": "2023-04-18T18:43:39.728Z",
-            "headers": [],
-            "params": [],
-            "tests": []
-        },
-        {
             "_id": "0b7d302e-1370-4a66-ba74-a9f393d8ad53",
             "colId": "332419e7-f1de-48b8-939f-119d0b10f0fc",
             "containerId": "",
             "name": "TestUpdateRating",
-            "url": "localhost:8001/r/restaurant/updaterestaurantrating/54",
+            "url": "localhost:8001/r/restaurant/updaterestaurantrating/45",
             "method": "PUT",
             "sortNum": 250000,
             "created": "2023-04-18T23:27:15.117Z",
-            "modified": "2023-04-19T01:08:34.556Z",
+            "modified": "2023-04-19T05:46:51.722Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"rating\":10\n}",
+                "raw": "{\n  \"rating\":6\n}",
                 "form": []
             },
             "tests": []
@@ -359,6 +331,34 @@
                 "raw": "{\n  \"rating\": \"7\"\n}",
                 "form": []
             },
+            "tests": []
+        },
+        {
+            "_id": "0396ed97-fece-49bb-8486-10e753195c88",
+            "colId": "332419e7-f1de-48b8-939f-119d0b10f0fc",
+            "containerId": "",
+            "name": "TestDeleteRestaurant",
+            "url": "localhost:8001/r/restaurant/deleterestaurant/102",
+            "method": "DELETE",
+            "sortNum": 270000,
+            "created": "2023-04-19T06:26:14.419Z",
+            "modified": "2023-04-19T06:27:50.137Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "68a1a98f-bb15-4e68-b811-d71f9455a257",
+            "colId": "332419e7-f1de-48b8-939f-119d0b10f0fc",
+            "containerId": "",
+            "name": "TestDeleteRestaurant02",
+            "url": "localhost:8001/r/restaurant/deleterestaurant/101",
+            "method": "DELETE",
+            "sortNum": 280000,
+            "created": "2023-04-19T06:28:17.987Z",
+            "modified": "2023-04-19T06:28:43.136Z",
+            "headers": [],
+            "params": [],
             "tests": []
         }
     ]
