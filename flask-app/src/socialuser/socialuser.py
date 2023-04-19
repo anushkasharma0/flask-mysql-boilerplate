@@ -167,7 +167,7 @@ def update_bio(UserId):
     db.get_db().commit()
 
     # Return updated user data
-    return 'User updated successfully!'
+    return 'User bio updated successfully!'
 
 if __name__ == '__main__':
     app.run(debug=True)
@@ -175,16 +175,17 @@ if __name__ == '__main__':
 # Delete user given a UserId
 @socialuser.route('/socialuser/deleteuser/<UserId>', methods=['DELETE'])
 def delete_user(UserId):
+    # constructing the query
+    query = 'DELETE FROM user WHERE UserId = %s'
+
+    current_app.logger.info(query)
+
+    # executing and committing
     cursor = db.get_db().cursor()
-    cursor.execute('select UserId from user where UserId= {0}'.format(UserId))
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
-    return 'User deleted'
+    cursor.execute(query, (UserId))
+    db.get_db().commit()
+
+    # Return updated user data
+    return 'User deleted successfully!'
 
 
