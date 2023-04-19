@@ -181,7 +181,7 @@ def update_rating(RestaurantId):
     rating = the_data['rating']
 
     # constructing the query
-    query = 'update user (rating) values ("'
+    query = 'set restaurant (rating) where values ("'
     query += str(rating) + '")'
 
     # Return updated user data

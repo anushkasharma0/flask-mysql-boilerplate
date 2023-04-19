@@ -158,7 +158,7 @@ def update_user_bio(UserId):
     bio = the_data['bio']
 
     # constructing the query
-    query = 'update user (bio) values ("'
+    query = 'set user (bio) values ("'
     query += bio + '")'
 
     # Return updated user data
