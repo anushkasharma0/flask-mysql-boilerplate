@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, make_response, current_app
+from flask import Blueprint, request, jsonify, make_response, current_app, app
 import json
 from src import db
 
@@ -170,29 +170,22 @@ def add_new_restaurant():
      return 'Success!'
 
 # Put - Update rating of a restaurant
-@restaurant.route('/restaurant/updaterestaurant/<RestaurantId>', methods=['PUT'])
-def update_review(restaurant_id, review_id):
-    # Check if the restaurant exists
-    restaurant = next((r for r in restaurant_reviews if r['restaurant_id'] == restaurant_id), None)
-    if restaurant is None:
-        return jsonify({'error': 'Restaurant not found'}), 404
+@restaurant.route('/restaurant/updaterestaurantrating/<RestaurantId>', methods=['PUT'])
+def update_rating(RestaurantId):
+     
+    # collecting data from the request object
+    the_data = request.json
+    current_app.logger.info(the_data)
+     
+    # extracting the variable
+    rating = the_data['rating']
 
-    # Check if the review exists
-    review = next((r for r in restaurant_reviews if r['id'] == review_id), None)
-    if review is None:
-        return jsonify({'error': 'Review not found'}), 404
+    # constructing the query
+    query = 'update user (rating) values ("'
+    query += str(rating) + '")'
 
-    # Get updated data from the request
-    updated_data = request.get_json()
-    if not updated_data:
-        return jsonify({'error': 'No data provided'}), 400
-
-    # Update review data
-    review['rating'] = updated_data.get('rating', review['rating'])
-    review['comment'] = updated_data.get('comment', review['comment'])
-
-    # Return updated review data
-    return jsonify({'message': 'Review updated successfully', 'review': review}), 200
+    # Return updated user data
+    return 'Restaurant rating updated successfully!'
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, make_response, current_app
+from flask import Blueprint, request, jsonify, make_response, current_app, app
 import json
 from src import db
 
@@ -147,23 +147,22 @@ def add_new_user():
      return 'Success!'
 
 # Put - Update user's bio
-@socialuser.route('/socialuser/<updateuser/<UserID>', methods=['PUT'])
-def update_user_bio(user_id):
-    # Check if the user exists
-    user = next((u for u in user_profiles if u['id'] == user_id), None)
-    if user is None:
-        return jsonify({'error': 'User not found'}), 404
+@socialuser.route('/socialuser/updatebio/<UserId>', methods=['PUT'])
+def update_user_bio(UserId):
+     
+    # collecting data from the request object
+    the_data = request.json
+    current_app.logger.info(the_data)
+     
+    # extracting the variable
+    bio = the_data['bio']
 
-    # Get updated bio from the request
-    updated_data = request.get_json()
-    if not updated_data:
-        return jsonify({'error': 'No data provided'}), 400
-
-    # Update user's bio
-    user['bio'] = updated_data.get('bio', user['bio'])
+    # constructing the query
+    query = 'update user (bio) values ("'
+    query += bio + '")'
 
     # Return updated user data
-    return jsonify({'message': 'User bio updated successfully', 'user': user}), 200
+    return 'User bio updated successfully!'
 
 if __name__ == '__main__':
     app.run(debug=True)
